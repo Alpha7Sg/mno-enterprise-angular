@@ -17,5 +17,8 @@ angular.module 'mnoEnterpriseAngular', [
   'xeditable',
   'pascalprecht.translate',
   'maestrano.impac',
-  'ngPageTitle'
+  'ngPageTitle',
+  'angularFileUpload',
+  'ngIntercom',
+  'ngStorage'
 ]
