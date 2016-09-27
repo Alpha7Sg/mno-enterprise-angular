@@ -72,18 +72,22 @@
 
 @_default_style:                                { .fa-2x; margin-top: 6px; margin-left: 2px; color: @dashboard-side-menu-link-color; };
 @_default_style_active:                         { @_default_style(); color: @dashboard-side-menu-link-active-color; };
-@dashboard-side-menu-btn-dashboard:             { .icon-fa(th); @_default_style(); };
-@dashboard-side-menu-btn-dashboard-active:      { .icon-fa(th); @_default_style_active(); };
-@dashboard-side-menu-btn-impac:                 { .icon-fa(pie-chart); @_default_style(); };
-@dashboard-side-menu-btn-impac-active:          { .icon-fa(pie-chart); @_default_style_active(); };
-@dashboard-side-menu-btn-account:               { .icon-fa(user); @_default_style(); margin-left: 5px; };
-@dashboard-side-menu-btn-account-active:        { .icon-fa(user); @_default_style_active(); margin-left: 5px; };
-@dashboard-side-menu-btn-company:               { .icon-fa(briefcase); @_default_style(); };
-@dashboard-side-menu-btn-company-active:        { .icon-fa(briefcase); @_default_style_active(); };
-@dashboard-side-menu-btn-marketplace:           { .icon-fa(plus-square-o); @_default_style(); margin-left: 5px; };
-@dashboard-side-menu-btn-marketplace-active:    { .icon-fa(plus-square-o); @_default_style_active(); margin-left: 5px; };
-@dashboard-side-menu-btn-logout:                { .icon-fa(lock); @_default_style(); margin-left: 6px; };
-@dashboard-side-menu-btn-logout-active:         { .icon-fa(lock); @_default_style_active(); margin-left: 6px; };
+@dashboard-side-menu-btn-dashboard:             { .i-coaas-notepad; @_default_style(); };
+@dashboard-side-menu-btn-dashboard-active:      { .i-coaas-notepad.active; @_default_style_active(); };
+@dashboard-side-menu-btn-impac:                 { .icon-fa(pie-chart); @_default_style(); font-size: 30px; background-color: transparent;};
+@dashboard-side-menu-btn-impac-active:          { .icon-fa(pie-chart); @_default_style_active(); font-size: 30px;};
+@dashboard-side-menu-btn-account:               { .i-coaas-cogwheels; @_default_style(); };
+@dashboard-side-menu-btn-account-active:        { .i-coaas-cogwheels.active; @_default_style_active(); };
+@dashboard-side-menu-btn-company:               { .i-coaas-pantheon; @_default_style(); };
+@dashboard-side-menu-btn-company-active:        { .i-coaas-pantheon.active; @_default_style_active(); };
+@dashboard-side-menu-btn-marketplace:           { .i-coaas-cloud; @_default_style(); };
+@dashboard-side-menu-btn-marketplace-active:    { .i-coaas-cloud.active; @_default_style_active(); };
+@dashboard-side-menu-btn-logout:                { .i-coaas-lock; @_default_style(); };
+@dashboard-side-menu-btn-logout-active:         { .i-coaas-lock.active; @_default_style_active(); };
+@dashboard-side-menu-btn-support:               { .i-coaas-support; @_default_style(); };
+@dashboard-side-menu-btn-support-active:        { .i-coaas-support.active; @_default_style_active(); };
+@dashboard-side-menu-btn-report:                { .icon-fa(file-text); @_default_style(); font-size: 30px; background-color: transparent;};
+@dashboard-side-menu-btn-report-active:         { .icon-fa(file-text); @_default_style_active(); font-size: 30px;};
 
 // Company select box (top right)
 //--------------------------------------
