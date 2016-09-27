@@ -55,6 +55,21 @@ angular.module 'mnoEnterpriseAngular'
           templateUrl: 'app/views/marketplace/marketplace-app.html'
           controller: 'DashboardMarketplaceAppCtrl'
           controllerAs: 'vm'
+      .state 'home.support',
+        url: '/support'
+        templateUrl: 'app/views/support/support.html'
+        controller: 'DashboardSupportCtrl'
+        controllerAs: 'vm'
+      .state 'home.gettingstarted',
+        url: '/getting-started'
+        templateUrl: 'app/views/gettingstarted/gettingstarted.html'
+        controller: 'DashboardGettingstartedCtrl'
+        controllerAs: 'vm'
+      .state 'home.report',
+        url: '/report'
+        templateUrl: 'app/views/report/report.html'
+        controller: 'DashboardReportCtrl'
+        controllerAs: 'vm'
       .state 'logout',
         url: '/logout'
         controller: ($window, $http, $translate, AnalyticsSvc) ->
