@@ -1,6 +1,36 @@
 #============================================
 # Dashboard Menu
 #============================================
+
+
+angular.module 'mnoEnterpriseAngular'
+.controller('DashboardMenutCtrl',
+  ($scope, MnoeCurrentUser, $state, MnoeOrganizations, DOCK_CONFIG) ->
+
+    $scope.canViewReport = false
+    $scope.isLoading = true
+
+    MnoeCurrentUser.get().then(
+      (response) ->
+        currentUser = MnoeCurrentUser.user
+        emailSplit = currentUser.email.split('@')
+        if emailSplit[1]=='alpha7.com.sg'
+          $scope.canViewReport = true
+    )
+
+    $scope.$watch(MnoeOrganizations.getSelected, (newValue, oldValue) ->
+      if newValue?
+    # Impac! is displayed only to admin and super admin
+        $scope.isAdmin = (MnoeOrganizations.role.isAdmin() || MnoeOrganizations.role.isSuperAdmin())
+        $scope.isDockEnabled = DOCK_CONFIG.enabled
+        $scope.isLoading = false
+        $state.go('home.login') if oldValue? && newValue != oldValue
+    )
+
+    return
+
+)
+
 angular.module 'mnoEnterpriseAngular'
   .directive('dashboardMenu', ->
 
