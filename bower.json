@@ -24,7 +24,10 @@
     "angular-translate-loader-static-files": "~2.9.1",
     "angular-translate-handler-log": "~2.9.1",
     "angular-sanitize": "~1.4.9",
-    "ng-page-title": "^1.1.1"
+    "ng-page-title": "^1.1.1",
+    "angular-file-upload": "",
+    "angular-intercom":"",
+    "ngstorage":""
   },
   "devDependencies": {
     "angular-mocks": "~1.4.10"
