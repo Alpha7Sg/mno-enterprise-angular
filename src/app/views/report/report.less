@@ -1,0 +1,25 @@
+.dashboard-report .presenter {
+  background-color: @bg-inverse-color;
+  .border-radius(5px);
+}
+
+.go-to-report-faq {
+  float: right;
+}
+
+.dashboard-report .content {
+  padding-top:10px;
+}
+
+.dashboard-report .spinner {
+
+}
+
+/* MENU ICON FOR SUPPORT */
+.dashboard-button i.dhb-icon-report {
+  @dashboard-side-menu-btn-report();
+};
+.dashboard-button:hover i.dhb-icon-report,
+.dashboard-button.active i.dhb-icon-report {
+  @dashboard-side-menu-btn-report-active();
+};

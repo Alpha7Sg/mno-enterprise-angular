@@ -1,0 +1,189 @@
+<h2 class="section-title">{{ 'mno_enterprise.templates.dashboard.menu.support' | translate }}</h2>
+<div class="spacer2"></div>
+<div class="dashboard-support">
+    <div class="presenter col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Knowledge Center<a href="https://cooaas.freshdesk.com/support/solutions" class="btn btn-warning go-to-support-faq" target="_blank">Go to our full<br/>Knowledge Centre</a></h4>
+                <h5>Featured articles</h5>
+            </div>
+        </div>
+        
+        <div class="content row">
+            <div class="col-md-6">
+            <ul>
+               <li><a href="http://support.alpha7.com.sg/support/solutions/articles/6000014474-introducing-the-a7-platform" target="_blank">Introducing the A7 Platform</a></li>
+                <li><a href="http://support.alpha7.com.sg/support/solutions/articles/6000014485-bringing-your-business-into-e-commerce-" target="_blank">Bringing your business into e-commerce!</a></li>
+                <li><a href="http://support.alpha7.com.sg/support/solutions/articles/6000014974-start-engaging-your-e-commerce-customers-" target="_blank">Start engaging your e-commerce customers!</a></li>
+                <li><a href="http://support.alpha7.com.sg/support/solutions/articles/6000014980-manage-your-business-operations-effectively-" target="_blank">Manage your business operations effectively!</a></li>
+                <li><a href="http://support.alpha7.com.sg/support/solutions/articles/6000014984-complete-automation-focus-on-driving-your-business-forward-" target="_blank">Complete automation. Focus on driving your business forward.
+                </a></li>
+            </ul>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li><a href="http://support.alpha7.com.sg/support/solutions/articles/6000014992-a7-platform-bundles-what-are-they-and-how-should-i-choose-" target="_blank"> A7 Platform Bundles - What are they and How should I choose?
+                    </a></li>
+                    <li><a href="http://support.alpha7.com.sg/support/solutions/articles/6000015000-what-support-can-i-get-on-the-a7-platform-" target="_blank">What support can I get on the A7 Platform? </a></li>
+                    <li><a href="http://support.alpha7.com.sg/support/solutions/articles/6000015617-why-is-there-a-distinction-between-pricing-for-different-apps-" target="_blank">Why is there a distinction between pricing for different apps? </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="spacer2"></div>
+    <div class="clearfix"></div>
+    <div class="presenter col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Support tickets<a href="" ng-click="open()" class="btn btn-warning go-to-support-faq"><span class="fa fa-plus-circle"></span> New Ticket</a></h4>
+                <h5 ng-if="!loadingTicketList && (tickets.length==0 || !tickets)">No tickets...</h5>
+            </div>
+        </div>
+        <div class="content row">
+                
+            <div ng-if="loadingTicketList">
+                <div class='align-center'>
+                    <p><i class="fa fa-refresh fa-spin fa-2x"></i></p>
+                </div>
+            </div>
+            <div ng-if='!loadingTicketList'>
+                <div id="listTicket">
+
+                    <uib-accordion class="accordion" ng-if="tickets.length>0">
+
+                        <uib-accordion-group is-open="isOpen" ng-repeat="ticket in tickets">
+                            <uib-accordion-heading>
+
+                                <!-- <div class="row"> -->
+                                <div class="col-md-4">
+                                    <span class="hidden-sm hidden-xs">
+                                        {{ticket.status}}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    {{ticket.title}}
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="hidden-sm hidden-xs">
+                                        <!--{{ticket.created_at | date : 'short'}}-->
+                                        <span class="caret pull-right" ng-class="{'caret-down': !isOpen, 'caret-up': isOpen}"></span>
+                                    </span>
+                                </div>
+                                <!-- </div> -->
+                            </uib-accordion-heading>
+                            
+                            <div class="row">
+                                <div class="col-md-11 col-md-offset-1">
+                                    <div class="comment-body">
+                                        <div class="comment-text">
+                                            {{ ticket.description }}
+                                        </div>                                        
+                                        <div ng-if="ticket.attachments.length>0">
+                                            <span class="comment-attachment" ng-repeat="attachment in ticket.attachments">
+                                                <a target="_blank" href="{{ attachment.attachment_url }}">
+                                                    <span class="fa fa-paperclip"></span>
+                                                    {{ attachment.content_file_name}} 
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+ 
+                                    <div class="comment-author">
+                                        {{ ticket.requester_name }} {{ ticket.created_at | date : 'short'}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" ng-repeat="comment in ticket.comments">
+                                <div class="col-md-11 col-md-offset-1">
+                                    <div class="comment-body">
+                                        <div class="comment-text">
+                                            {{ comment.body }}
+                                        </div>
+                                        <div ng-if="comment.attachments.length>0">
+                                            <span class="comment-attachment" ng-repeat="attachment in comment.attachments">
+                                                <a target="_blank" href="{{ attachment.attachment_url }}">
+                                                    <span class="fa fa-paperclip"></span>
+                                                    {{ attachment.content_file_name}} 
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+ 
+                                    <div class="comment-author">
+                                        {{ comment.author }} {{ comment.created_at | date : 'short'}}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-11 col-md-offset-1">
+                                    <div class="row">
+                                        <div class="col-md-8 form-group">
+                                            <label>Enter a message below to update your ticket</label>
+                                            <textarea class="form-control comment-textarea ng-pristine ng-valid" ng-model="newComments[ticket.id].comment">
+                                            </textarea>
+                                            
+                                            <div class="form-attachment">
+                                                <div ng-repeat="item in uploader.queue">
+                                                    {{ item.file.name }}
+                                                    <button type="button" class="btn btn-warning btn-xs" ng-click="item.remove()"><span class="fa fa-trash"></span> Remove</button>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>Attachment (optional)</label>
+                                            <input class="form-control" type="file" nv-file-select uploader="uploader" multiple/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spacer1"></div>
+                            <div class="row">
+                                <div class="col-md-12 text-right">
+                                    <button ng-show="!sendingComment" ng-click="submitComment(ticket)" class="btn btn-warning">Send</button>
+                                    <button ng-show="sendingComment" class="btn btn-warning" disabled><span class='fa fa-spinner fa-spin'></span> Saving..</button>
+                                </div>
+                            </div>
+                        </uib-accordion-group>
+
+                    </uib-accordion>
+                </div>
+            </div>
+        </div>
+    </div>s
+    <div class="spacer2"></div>
+    <div class="clearfix"></div>
+</div>
+<script type="text/ng-template" id="a7-new-ticket.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Submit New Ticket</h3>
+    </div>
+    <div class="modal-body">
+        <form id="newTicket">
+            <div class="form-group">
+                <label for="subject" >Subject: </label>
+                <input class="form-control" ng-model="newTicket.subject" id="subject" name="subject" type="text" value="">
+            </div>
+            <div class="form-group">
+                <label for="description" >Description</label>
+                <textarea class="form-control"  id="description" ng-model="newTicket.description" name="description" ></textarea>
+            </div>
+            <div class="form-group">
+                <label>Attachment (optional)</label>
+                <input class="form-control" type="file" nv-file-select uploader="uploader" multiple/>
+                <div class="form-attachment">
+                    <div ng-repeat="item in uploader.queue">
+                        {{ item.file.name }}
+                        <button type="button" class="btn btn-warning btn-xs" ng-click="item.remove()"><span class="fa fa-trash"></span> Remove</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button id="ticket-submit" class="btn btn-primary" ng-click="ok(newTicket)">Submit</button>
+        <button id="ticket-cancel" class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
