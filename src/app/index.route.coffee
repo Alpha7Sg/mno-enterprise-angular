@@ -60,6 +60,11 @@ angular.module 'mnoEnterpriseAngular'
         templateUrl: 'app/views/support/support.html'
         controller: 'DashboardSupportCtrl'
         controllerAs: 'vm'
+      .state 'home.workspace',
+          url: '/workspace'
+          templateUrl: 'app/views/workspace/workspace.html'
+          controller: 'WorkspaceCtrl'
+          controllerAs: 'vm'
       .state 'home.gettingstarted',
         url: '/getting-started'
         templateUrl: 'app/views/gettingstarted/gettingstarted.html'
