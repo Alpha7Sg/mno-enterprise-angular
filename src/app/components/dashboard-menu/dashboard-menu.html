@@ -28,6 +28,10 @@
         <a ng-if="isAdmin" ui-sref="home.impac" ui-sref-active="active">{{ 'mno_enterprise.templates.dashboard.menu.impac' | translate }}</a>
       </li>
 
+      <li>
+        <a href="http://anzimapfrontend.ap-southeast-1.elasticbeanstalk.com/maestrano/auth/saml/init" ui-sref-active="active">iMap Dashboard</a>
+      </li>
+
       <li ng-if="isDockEnabled">
         <a ng-if="isAdmin" ui-sref="home.impac" ui-sref-active="active">{{ 'mno_enterprise.templates.dashboard.menu.dashboard' | translate }}</a>
       </li>
@@ -77,6 +81,11 @@
 
     <a ng-if="!isDockEnabled && isAdmin" ui-sref="home.impac" class="dashboard-button top-buffer-1" ui-sref-active="active">
       <div class='content'>{{ 'mno_enterprise.templates.dashboard.menu.impac' | translate }}</div>
+      <i class="dhb-icon-impac"></i>
+    </a>
+
+    <a href="http://anzimapfrontend.ap-southeast-1.elasticbeanstalk.com/maestrano/auth/saml/init" class="dashboard-button top-buffer-1" ui-sref-active="active">
+      <div class='content'>iMap</div>
       <i class="dhb-icon-impac"></i>
     </a>
 
